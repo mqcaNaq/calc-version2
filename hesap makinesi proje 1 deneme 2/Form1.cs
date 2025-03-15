@@ -189,6 +189,7 @@ namespace hesap_makinesi_proje_1_deneme_2
         {
             double aci = Convert.ToDouble(txtSonuc.Text);
             double tan = Math.Tan(Convert.ToDouble(txtSonuc.Text) * Math.PI / 180);
+            tan = Math.Round(tan, 5);
             txtSonuc.Text = Convert.ToString(tan);
 
             string islem = "tan(" + aci + ") = " + tan;
@@ -248,6 +249,7 @@ namespace hesap_makinesi_proje_1_deneme_2
         {
             double aci = Convert.ToDouble(txtSonuc.Text);
             double sin = Math.Sin(Convert.ToDouble(txtSonuc.Text) * Math.PI / 180);
+            sin = Math.Round(sin, 5);
             txtSonuc.Text = Convert.ToString(sin);
 
             string islem = "sin(" + aci + ") = " + sin;
@@ -260,6 +262,7 @@ namespace hesap_makinesi_proje_1_deneme_2
         {
             double aci = Convert.ToDouble(txtSonuc.Text);
             double cos = Math.Cos(Convert.ToDouble(txtSonuc.Text) * Math.PI / 180);
+            cos = Math.Round(cos, 5);
             txtSonuc.Text = Convert.ToString(cos);
 
             string islem = "cos(" + aci + ") = " + cos;
@@ -273,6 +276,7 @@ namespace hesap_makinesi_proje_1_deneme_2
             double rad = Convert.ToDouble(txtSonuc.Text);
             double sin = Convert.ToDouble(txtSonuc.Text);
             sin = Math.Sin(sin);
+            sin = Math.Round(sin, 5);
             txtSonuc.Text = Convert.ToString(sin);
 
             string islem = "sin(rad=" + rad + ") = " + sin;
@@ -286,6 +290,7 @@ namespace hesap_makinesi_proje_1_deneme_2
             double rad = Convert.ToDouble(txtSonuc.Text);
             double cos = Convert.ToDouble(txtSonuc.Text);
             cos = Math.Cos(cos);
+            cos = Math.Round(cos, 5);
             txtSonuc.Text = Convert.ToString(cos);
 
             string islem = "cos(rad=" + rad + ") = " + cos;
@@ -299,6 +304,7 @@ namespace hesap_makinesi_proje_1_deneme_2
             double rad = Convert.ToDouble(txtSonuc.Text);
             double tan = Convert.ToDouble(txtSonuc.Text);
             tan = Math.Tan(tan);
+            tan = Math.Round(tan, 5);
             txtSonuc.Text = Convert.ToString(tan);
 
             string islem = "tan(rad=" + rad + ") = " + tan;
@@ -312,6 +318,7 @@ namespace hesap_makinesi_proje_1_deneme_2
             double rad = Convert.ToDouble(txtSonuc.Text);
             double cot = Convert.ToDouble(txtSonuc.Text);
             cot = (1 / Math.Tan(cot));
+            cot = Math.Round(cot, 5);
             txtSonuc.Text = Convert.ToString(cot);
 
             string islem = "cot(rad=" + rad + ") = " + cot;
@@ -324,6 +331,7 @@ namespace hesap_makinesi_proje_1_deneme_2
         {
             double aci = Convert.ToDouble(txtSonuc.Text);
             double cot = (1 / Math.Tan(Convert.ToDouble(txtSonuc.Text) * Math.PI / 180));
+            cot = Math.Round(cot, 5);
             txtSonuc.Text = Convert.ToString(cot);
 
             string islem = "cot(" + aci + ") = " + cot;

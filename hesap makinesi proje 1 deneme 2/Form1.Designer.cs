@@ -586,11 +586,12 @@
             // 
             // lstIslemGecmisi
             // 
+            lstIslemGecmisi.BorderStyle = BorderStyle.FixedSingle;
+            lstIslemGecmisi.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
             lstIslemGecmisi.FormattingEnabled = true;
-            lstIslemGecmisi.ItemHeight = 15;
             lstIslemGecmisi.Location = new Point(0, 0);
             lstIslemGecmisi.Name = "lstIslemGecmisi";
-            lstIslemGecmisi.Size = new Size(156, 109);
+            lstIslemGecmisi.Size = new Size(156, 98);
             lstIslemGecmisi.TabIndex = 3;
             lstIslemGecmisi.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
@@ -608,9 +609,9 @@
             // pnlIslemGecmisi
             // 
             pnlIslemGecmisi.Controls.Add(lstIslemGecmisi);
-            pnlIslemGecmisi.Location = new Point(521, 420);
+            pnlIslemGecmisi.Location = new Point(521, 422);
             pnlIslemGecmisi.Name = "pnlIslemGecmisi";
-            pnlIslemGecmisi.Size = new Size(156, 109);
+            pnlIslemGecmisi.Size = new Size(156, 98);
             pnlIslemGecmisi.TabIndex = 5;
             pnlIslemGecmisi.Visible = false;
             // 
@@ -618,7 +619,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(692, 534);
+            ClientSize = new Size(692, 543);
             Controls.Add(pnlIslemGecmisi);
             Controls.Add(btnIslemGecmisi);
             Controls.Add(txtSonuc);
