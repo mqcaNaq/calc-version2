@@ -1,7 +1,11 @@
+﻿using Microsoft.VisualBasic.Logging;
+
 namespace hesap_makinesi_proje_1_deneme_2
 {
     public partial class Form1 : Form
     {
+        List<string> islemGecmisi = new List<string>();
+
         double ilkDegeriGir, ikinciDegeriGir;
         String op;
         public Form1()
@@ -47,68 +51,65 @@ namespace hesap_makinesi_proje_1_deneme_2
         {
             ikinciDegeriGir = Convert.ToDouble(txtSonuc.Text);
 
+            string islem = "";
+            double sonuc = 0;
 
             switch (op)
             {
                 case "+":
-                    txtSonuc.Text = (ilkDegeriGir + ikinciDegeriGir).ToString();
-
+                    sonuc = ilkDegeriGir + ikinciDegeriGir;
                     break;
 
                 case "-":
-                    txtSonuc.Text = (ilkDegeriGir - ikinciDegeriGir).ToString();
-
+                    sonuc = ilkDegeriGir - ikinciDegeriGir;
                     break;
 
                 case "*":
-                    txtSonuc.Text = (ilkDegeriGir * ikinciDegeriGir).ToString();
-
+                    sonuc = ilkDegeriGir * ikinciDegeriGir;
                     break;
 
                 case "/":
                     if (ikinciDegeriGir == 0)
                     {
-                        txtSonuc.Text = "S�f�ra b�l�nemez!";
+                        txtSonuc.Text = "Sıfıra bölünemez!";
+                        return; // İşleme devam etme, methodu sonlandır.
                     }
                     else
                     {
-                        double sonuc = ilkDegeriGir / ikinciDegeriGir;
-                        txtSonuc.Text = sonuc.ToString(); 
+                        sonuc = ilkDegeriGir / ikinciDegeriGir;
                     }
-
-
                     break;
 
                 case "Mod":
-                    txtSonuc.Text = (ilkDegeriGir % ikinciDegeriGir).ToString();
-
+                    sonuc = ilkDegeriGir % ikinciDegeriGir;
                     break;
 
                 case "Exp":
-                    double i = Convert.ToDouble(txtSonuc.Text);
-                    double j;
-                    j = ikinciDegeriGir;
-
-
-                    txtSonuc.Text = Math.Exp(i * Math.Log(j * 4)).ToString();
-
+                    // Bu örnekte Exp işlemi için farklı bir hesaplama örneği veriliyor.
+                    // İstediğiniz hesaplama mantığına göre düzenleyebilirsiniz.
+                    sonuc = Math.Exp(ilkDegeriGir * Math.Log(ikinciDegeriGir));
                     break;
 
                 case "x^x":
-                    int n;
-                    double gecici = 1;
-                    for (n = 0; n < ikinciDegeriGir; n++)
+                    sonuc = 1;
+                    for (int n = 0; n < ikinciDegeriGir; n++)
                     {
-                        gecici *= ilkDegeriGir;
+                        sonuc *= ilkDegeriGir;
                     }
-                    txtSonuc.Text = gecici.ToString();
-
                     break;
-
 
                 default:
-
                     break;
+            }
+
+            txtSonuc.Text = sonuc.ToString();
+
+            islem = ilkDegeriGir.ToString() + " " + op + " " + ikinciDegeriGir.ToString() + " = " + sonuc.ToString();
+            islemGecmisi.Add(islem);
+
+            if (islemGecmisi.Count > 10)
+            {
+                islemGecmisi.RemoveAt(0);
             }
         }
 
@@ -165,7 +166,7 @@ namespace hesap_makinesi_proje_1_deneme_2
         {
             DialogResult exitCal;
 
-            exitCal = MessageBox.Show("��k�� yapmak istiyor musunuz?", "Hesap Makinesi",
+            exitCal = MessageBox.Show("Çıkış yapmak istiyor musunuz?", "Hesap Makinesi",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (exitCal == DialogResult.Yes)
@@ -186,29 +187,53 @@ namespace hesap_makinesi_proje_1_deneme_2
 
         private void btnTan_Click(object sender, EventArgs e)
         {
+            double aci = Convert.ToDouble(txtSonuc.Text);
             double tan = Math.Tan(Convert.ToDouble(txtSonuc.Text) * Math.PI / 180);
             txtSonuc.Text = Convert.ToString(tan);
+
+            string islem = "tan(" + aci + ") = " + tan;
+            islemGecmisi.Add(islem);
+            if (islemGecmisi.Count > 10)
+                islemGecmisi.RemoveAt(0);
         }
 
         private void btnLog_Click(object sender, EventArgs e)
         {
+            double sayi = Convert.ToDouble(txtSonuc.Text);
             double logg = Convert.ToDouble(txtSonuc.Text);
             logg = Math.Log10(logg);
             txtSonuc.Text = Convert.ToString(logg);
+
+            string islem = "log(" + sayi + ") = " + logg;
+            islemGecmisi.Add(islem);
+            if (islemGecmisi.Count > 10)
+                islemGecmisi.RemoveAt(0);
         }
 
         private void btnSqrt_Click(object sender, EventArgs e)
         {
+            double sayi = Convert.ToDouble(txtSonuc.Text);
             double sq = Convert.ToDouble(txtSonuc.Text);
             sq = Math.Sqrt(sq);
             txtSonuc.Text = Convert.ToString(sq);
+
+            string islem = "√" + sayi + " = " + sq;
+            islemGecmisi.Add(islem);
+            if (islemGecmisi.Count > 10)
+                islemGecmisi.RemoveAt(0);
         }
 
         private void btnKare_Click(object sender, EventArgs e)
         {
+            double sayi = Convert.ToDouble(txtSonuc.Text);
             double x;
             x = Convert.ToDouble(txtSonuc.Text) * Convert.ToDouble(txtSonuc.Text);
             txtSonuc.Text = Convert.ToString(x);
+
+            string islem = "(" + sayi + ")^2 = " + x;
+            islemGecmisi.Add(islem);
+            if (islemGecmisi.Count > 10)
+                islemGecmisi.RemoveAt(0);
         }
 
         private void btnKup_Click(object sender, EventArgs e)
@@ -221,48 +246,90 @@ namespace hesap_makinesi_proje_1_deneme_2
 
         private void btnSin_Click(object sender, EventArgs e)
         {
+            double aci = Convert.ToDouble(txtSonuc.Text);
             double sin = Math.Sin(Convert.ToDouble(txtSonuc.Text) * Math.PI / 180);
             txtSonuc.Text = Convert.ToString(sin);
+
+            string islem = "sin(" + aci + ") = " + sin;
+            islemGecmisi.Add(islem);
+            if (islemGecmisi.Count > 10)
+                islemGecmisi.RemoveAt(0);
         }
 
         private void btnCos_Click(object sender, EventArgs e)
         {
+            double aci = Convert.ToDouble(txtSonuc.Text);
             double cos = Math.Cos(Convert.ToDouble(txtSonuc.Text) * Math.PI / 180);
             txtSonuc.Text = Convert.ToString(cos);
+
+            string islem = "cos(" + aci + ") = " + cos;
+            islemGecmisi.Add(islem);
+            if (islemGecmisi.Count > 10)
+                islemGecmisi.RemoveAt(0);
         }
 
         private void btnSinRad_Click(object sender, EventArgs e)
         {
+            double rad = Convert.ToDouble(txtSonuc.Text);
             double sin = Convert.ToDouble(txtSonuc.Text);
             sin = Math.Sin(sin);
             txtSonuc.Text = Convert.ToString(sin);
+
+            string islem = "sin(rad=" + rad + ") = " + sin;
+            islemGecmisi.Add(islem);
+            if (islemGecmisi.Count > 10)
+                islemGecmisi.RemoveAt(0);
         }
 
         private void btnCosRad_Click(object sender, EventArgs e)
         {
+            double rad = Convert.ToDouble(txtSonuc.Text);
             double cos = Convert.ToDouble(txtSonuc.Text);
             cos = Math.Cos(cos);
             txtSonuc.Text = Convert.ToString(cos);
+
+            string islem = "cos(rad=" + rad + ") = " + cos;
+            islemGecmisi.Add(islem);
+            if (islemGecmisi.Count > 10)
+                islemGecmisi.RemoveAt(0);
         }
 
         private void btnTanRad_Click(object sender, EventArgs e)
         {
+            double rad = Convert.ToDouble(txtSonuc.Text);
             double tan = Convert.ToDouble(txtSonuc.Text);
             tan = Math.Tan(tan);
             txtSonuc.Text = Convert.ToString(tan);
+
+            string islem = "tan(rad=" + rad + ") = " + tan;
+            islemGecmisi.Add(islem);
+            if (islemGecmisi.Count > 10)
+                islemGecmisi.RemoveAt(0);
         }
 
         private void btnCotRad_Click(object sender, EventArgs e)
         {
+            double rad = Convert.ToDouble(txtSonuc.Text);
             double cot = Convert.ToDouble(txtSonuc.Text);
             cot = (1 / Math.Tan(cot));
             txtSonuc.Text = Convert.ToString(cot);
+
+            string islem = "cot(rad=" + rad + ") = " + cot;
+            islemGecmisi.Add(islem);
+            if (islemGecmisi.Count > 10)
+                islemGecmisi.RemoveAt(0);
         }
 
         private void btnCot_Click(object sender, EventArgs e)
         {
+            double aci = Convert.ToDouble(txtSonuc.Text);
             double cot = (1 / Math.Tan(Convert.ToDouble(txtSonuc.Text) * Math.PI / 180));
             txtSonuc.Text = Convert.ToString(cot);
+
+            string islem = "cot(" + aci + ") = " + cot;
+            islemGecmisi.Add(islem);
+            if (islemGecmisi.Count > 10)
+                islemGecmisi.RemoveAt(0);
         }
 
         private void btnYuzde_Click(object sender, EventArgs e)
@@ -274,17 +341,50 @@ namespace hesap_makinesi_proje_1_deneme_2
 
         private void btnKup_Click_1(object sender, EventArgs e)
         {
+            double sayi = Convert.ToDouble(txtSonuc.Text);
             double x;
             x = Convert.ToDouble(txtSonuc.Text) * Convert.ToDouble(txtSonuc.Text)
                 * Convert.ToDouble(txtSonuc.Text);
             txtSonuc.Text = Convert.ToString(x);
+
+            string islem = "(" + sayi + ")^3 = " + x;
+            islemGecmisi.Add(islem);
+            if (islemGecmisi.Count > 10)
+                islemGecmisi.RemoveAt(0);
         }
 
         private void btnLnx_Click(object sender, EventArgs e)
         {
+            double sayi = Convert.ToDouble(txtSonuc.Text);
             double lnx = Convert.ToDouble(txtSonuc.Text);
             lnx = Math.Log(lnx);
             txtSonuc.Text = Convert.ToString(lnx);
+
+            string islem = "ln(" + sayi + ") = " + lnx;
+            islemGecmisi.Add(islem);
+            if (islemGecmisi.Count > 10)
+                islemGecmisi.RemoveAt(0);
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnIslemGecmisi_Click(object sender, EventArgs e)
+        {
+            // Panel görünürlüğünü kontrol edip tersine çeviriyoruz
+            pnlIslemGecmisi.Visible = !pnlIslemGecmisi.Visible;
+
+            // Eğer panel görünür hale geldiyse, ListBox'ı güncelleyin.
+            if (pnlIslemGecmisi.Visible)
+            {
+                lstIslemGecmisi.Items.Clear();
+                foreach (string kayit in islemGecmisi)
+                {
+                    lstIslemGecmisi.Items.Add(kayit);
+                }
+            }
         }
     }
 }

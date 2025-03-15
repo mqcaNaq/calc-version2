@@ -74,7 +74,11 @@
             btnKup = new Button();
             btnLnx = new Button();
             button3 = new Button();
+            lstIslemGecmisi = new ListBox();
+            btnIslemGecmisi = new Button();
+            pnlIslemGecmisi = new Panel();
             menuStrip1.SuspendLayout();
+            pnlIslemGecmisi.SuspendLayout();
             SuspendLayout();
             // 
             // btnSil
@@ -407,7 +411,7 @@
             // btnKare
             // 
             btnKare.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
-            btnKare.Location = new Point(440, 420);
+            btnKare.Location = new Point(359, 420);
             btnKare.Name = "btnKare";
             btnKare.Size = new Size(75, 75);
             btnKare.TabIndex = 0;
@@ -550,7 +554,7 @@
             // btnKup
             // 
             btnKup.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
-            btnKup.Location = new Point(521, 420);
+            btnKup.Location = new Point(440, 420);
             btnKup.Name = "btnKup";
             btnKup.Size = new Size(75, 75);
             btnKup.TabIndex = 0;
@@ -580,11 +584,43 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += btnKare_Click;
             // 
+            // lstIslemGecmisi
+            // 
+            lstIslemGecmisi.FormattingEnabled = true;
+            lstIslemGecmisi.ItemHeight = 15;
+            lstIslemGecmisi.Location = new Point(0, 0);
+            lstIslemGecmisi.Name = "lstIslemGecmisi";
+            lstIslemGecmisi.Size = new Size(156, 109);
+            lstIslemGecmisi.TabIndex = 3;
+            lstIslemGecmisi.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            // 
+            // btnIslemGecmisi
+            // 
+            btnIslemGecmisi.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnIslemGecmisi.Location = new Point(552, 5);
+            btnIslemGecmisi.Name = "btnIslemGecmisi";
+            btnIslemGecmisi.Size = new Size(125, 45);
+            btnIslemGecmisi.TabIndex = 4;
+            btnIslemGecmisi.Text = "İşlem Geçmişi";
+            btnIslemGecmisi.UseVisualStyleBackColor = true;
+            btnIslemGecmisi.Click += btnIslemGecmisi_Click;
+            // 
+            // pnlIslemGecmisi
+            // 
+            pnlIslemGecmisi.Controls.Add(lstIslemGecmisi);
+            pnlIslemGecmisi.Location = new Point(521, 420);
+            pnlIslemGecmisi.Name = "pnlIslemGecmisi";
+            pnlIslemGecmisi.Size = new Size(156, 109);
+            pnlIslemGecmisi.TabIndex = 5;
+            pnlIslemGecmisi.Visible = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(692, 534);
+            Controls.Add(pnlIslemGecmisi);
+            Controls.Add(btnIslemGecmisi);
             Controls.Add(txtSonuc);
             Controls.Add(btnBolu);
             Controls.Add(btnCarpi);
@@ -636,6 +672,7 @@
             Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            pnlIslemGecmisi.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -687,5 +724,8 @@
         private Button btnKup;
         private Button btnLnx;
         private Button button3;
+        private ListBox lstIslemGecmisi;
+        private Button btnIslemGecmisi;
+        private Panel pnlIslemGecmisi;
     }
 }
