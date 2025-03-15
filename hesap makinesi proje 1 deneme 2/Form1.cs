@@ -165,7 +165,7 @@ namespace hesap_makinesi_proje_1_deneme_2
         {
             DialogResult exitCal;
 
-            exitCal = MessageBox.Show("Çýkýþ yapmak istediðinizi doðrulayýn.", "Hesap Makinesi",
+            exitCal = MessageBox.Show("Çýkýþ yapmak istiyor musunuz?", "Hesap Makinesi",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (exitCal == DialogResult.Yes)
