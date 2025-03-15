@@ -22,9 +22,9 @@ namespace hesap_makinesi_proje_1_deneme_2
             if (txtSonuc.Text == "0")
                 txtSonuc.Text = "";
             {
-                if (num.Text == ".")
+                if (num.Text == ",")
                 {
-                    if (!txtSonuc.Text.Contains("."))
+                    if (!txtSonuc.Text.Contains(","))
                         txtSonuc.Text = txtSonuc.Text + num.Text;
                 }
                 else
@@ -66,7 +66,16 @@ namespace hesap_makinesi_proje_1_deneme_2
                     break;
 
                 case "/":
-                    txtSonuc.Text = (ilkDegeriGir / ikinciDegeriGir).ToString();
+                    if (ikinciDegeriGir == 0)
+                    {
+                        txtSonuc.Text = "Sýfýra bölünemez!";
+                    }
+                    else
+                    {
+                        double sonuc = ilkDegeriGir / ikinciDegeriGir;
+                        txtSonuc.Text = sonuc.ToString(); 
+                    }
+
 
                     break;
 

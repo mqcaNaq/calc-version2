@@ -79,17 +79,20 @@
             // 
             // btnSil
             // 
+            btnSil.BackColor = Color.Red;
             btnSil.Font = new Font("Wingdings", 18F, FontStyle.Bold);
+            btnSil.ForeColor = Color.White;
             btnSil.Location = new Point(12, 96);
             btnSil.Name = "btnSil";
             btnSil.Size = new Size(75, 75);
             btnSil.TabIndex = 0;
             btnSil.Text = "";
-            btnSil.UseVisualStyleBackColor = true;
+            btnSil.UseVisualStyleBackColor = false;
             btnSil.Click += btnSil_Click;
             // 
             // txtSonuc
             // 
+            txtSonuc.BackColor = SystemColors.InactiveCaption;
             txtSonuc.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
             txtSonuc.Location = new Point(12, 53);
             txtSonuc.Multiline = true;
@@ -101,35 +104,42 @@
             // 
             // btnClearEntry
             // 
+            btnClearEntry.BackColor = Color.DarkGray;
             btnClearEntry.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            btnClearEntry.ForeColor = Color.White;
             btnClearEntry.Location = new Point(93, 96);
             btnClearEntry.Name = "btnClearEntry";
             btnClearEntry.Size = new Size(75, 75);
             btnClearEntry.TabIndex = 0;
             btnClearEntry.Text = "CE";
-            btnClearEntry.UseVisualStyleBackColor = true;
+            btnClearEntry.UseVisualStyleBackColor = false;
             btnClearEntry.Click += btnClearEntry_Click;
             // 
             // btnClear
             // 
+            btnClear.BackColor = Color.DarkGray;
             btnClear.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            btnClear.ForeColor = Color.White;
             btnClear.Location = new Point(174, 96);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(75, 75);
             btnClear.TabIndex = 0;
             btnClear.Text = "C";
-            btnClear.UseVisualStyleBackColor = true;
+            btnClear.UseVisualStyleBackColor = false;
             btnClear.Click += btnClear_Click;
             // 
             // btnAE
             // 
+            btnAE.BackColor = Color.FromArgb(255, 128, 0);
+            btnAE.FlatStyle = FlatStyle.Flat;
             btnAE.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            btnAE.ForeColor = Color.White;
             btnAE.Location = new Point(255, 96);
             btnAE.Name = "btnAE";
             btnAE.Size = new Size(75, 75);
             btnAE.TabIndex = 0;
             btnAE.Text = "±";
-            btnAE.UseVisualStyleBackColor = true;
+            btnAE.UseVisualStyleBackColor = false;
             btnAE.Click += btnAE_Click;
             // 
             // btn7
@@ -167,13 +177,16 @@
             // 
             // btnArti
             // 
+            btnArti.BackColor = Color.FromArgb(255, 128, 0);
+            btnArti.FlatStyle = FlatStyle.Flat;
             btnArti.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            btnArti.ForeColor = Color.White;
             btnArti.Location = new Point(255, 177);
             btnArti.Name = "btnArti";
             btnArti.Size = new Size(75, 75);
             btnArti.TabIndex = 0;
             btnArti.Text = "+";
-            btnArti.UseVisualStyleBackColor = true;
+            btnArti.UseVisualStyleBackColor = false;
             btnArti.Click += numberOper;
             // 
             // btn4
@@ -244,24 +257,30 @@
             // 
             // btnEksi
             // 
+            btnEksi.BackColor = Color.FromArgb(255, 128, 0);
+            btnEksi.FlatStyle = FlatStyle.Flat;
             btnEksi.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            btnEksi.ForeColor = Color.White;
             btnEksi.Location = new Point(255, 258);
             btnEksi.Name = "btnEksi";
             btnEksi.Size = new Size(75, 75);
             btnEksi.TabIndex = 0;
             btnEksi.Text = "-";
-            btnEksi.UseVisualStyleBackColor = true;
+            btnEksi.UseVisualStyleBackColor = false;
             btnEksi.Click += numberOper;
             // 
             // btnCarpi
             // 
+            btnCarpi.BackColor = Color.FromArgb(255, 128, 0);
+            btnCarpi.FlatStyle = FlatStyle.Flat;
             btnCarpi.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            btnCarpi.ForeColor = Color.White;
             btnCarpi.Location = new Point(255, 339);
             btnCarpi.Name = "btnCarpi";
             btnCarpi.Size = new Size(75, 75);
             btnCarpi.TabIndex = 0;
             btnCarpi.Text = "*";
-            btnCarpi.UseVisualStyleBackColor = true;
+            btnCarpi.UseVisualStyleBackColor = false;
             btnCarpi.Click += numberOper;
             // 
             // btn0
@@ -277,13 +296,16 @@
             // 
             // btnEsittir
             // 
+            btnEsittir.BackColor = Color.FromArgb(255, 128, 0);
+            btnEsittir.FlatStyle = FlatStyle.Flat;
             btnEsittir.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            btnEsittir.ForeColor = Color.White;
             btnEsittir.Location = new Point(174, 420);
             btnEsittir.Name = "btnEsittir";
             btnEsittir.Size = new Size(75, 75);
             btnEsittir.TabIndex = 0;
             btnEsittir.Text = "=";
-            btnEsittir.UseVisualStyleBackColor = true;
+            btnEsittir.UseVisualStyleBackColor = false;
             btnEsittir.Click += btnEsittir_Click;
             // 
             // btnNokta
@@ -293,19 +315,22 @@
             btnNokta.Name = "btnNokta";
             btnNokta.Size = new Size(75, 75);
             btnNokta.TabIndex = 0;
-            btnNokta.Text = ".";
+            btnNokta.Text = ",";
             btnNokta.UseVisualStyleBackColor = true;
             btnNokta.Click += EnterNumbers;
             // 
             // btnBolu
             // 
+            btnBolu.BackColor = Color.FromArgb(255, 128, 0);
+            btnBolu.FlatStyle = FlatStyle.Flat;
             btnBolu.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            btnBolu.ForeColor = Color.White;
             btnBolu.Location = new Point(255, 420);
             btnBolu.Name = "btnBolu";
             btnBolu.Size = new Size(75, 75);
             btnBolu.TabIndex = 0;
             btnBolu.Text = "/";
-            btnBolu.UseVisualStyleBackColor = true;
+            btnBolu.UseVisualStyleBackColor = false;
             btnBolu.Click += numberOper;
             // 
             // menuStrip1
