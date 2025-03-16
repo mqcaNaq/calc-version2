@@ -352,7 +352,6 @@
             modeToolStripMenuItem.Name = "modeToolStripMenuItem";
             modeToolStripMenuItem.Size = new Size(57, 20);
             modeToolStripMenuItem.Text = "Modlar";
-            modeToolStripMenuItem.Click += modeToolStripMenuItem_Click;
             // 
             // standartToolStripMenuItem
             // 
@@ -560,7 +559,7 @@
             btnKup.TabIndex = 0;
             btnKup.Text = "x³";
             btnKup.UseVisualStyleBackColor = true;
-            btnKup.Click += btnKup_Click_1;
+            btnKup.Click += btnKup_Click;
             // 
             // btnLnx
             // 
@@ -593,7 +592,6 @@
             lstIslemGecmisi.Name = "lstIslemGecmisi";
             lstIslemGecmisi.Size = new Size(156, 98);
             lstIslemGecmisi.TabIndex = 3;
-            lstIslemGecmisi.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // btnIslemGecmisi
             // 
@@ -663,7 +661,6 @@
             Controls.Add(btn4);
             Controls.Add(btnSil);
             Controls.Add(menuStrip1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
